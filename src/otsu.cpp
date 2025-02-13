@@ -49,10 +49,13 @@ int calculateThresholdOtsu(const Mat& image) {
 
 Mat thresholdOtsu(Mat image) {
     Mat res = image.clone();
-
     int best_threshold = calculateThresholdOtsu(image);
 
-    threshold(res, res, best_threshold, 255, THRESH_BINARY);
+    for (int y = 0; y < image.rows; y++) {
+        for (int x = 0; x < image.cols; x++) {
+            res.at<uchar>(y, x) = (image.at<uchar>(y, x) >= best_threshold) ? 255 : 0;
+        }
+    }
 
     cout << "Meilleur seuil trouvé : " << best_threshold << endl;
     return res;
@@ -60,7 +63,7 @@ Mat thresholdOtsu(Mat image) {
 
 int main() {
     // !!! Pensez à charger votre image ici !!! 
-    Mat image = imread("", IMREAD_GRAYSCALE);
+    Mat image = imread("/Volumes/SSD/M1VMI/S2/image_processing/ImageProcessingLab-main/bin/blobs.png", IMREAD_GRAYSCALE);
     if (image.empty()) {
         cerr << "Erreur : Impossible de charger l'image." << endl;
         return -1;
