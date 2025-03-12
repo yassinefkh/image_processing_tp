@@ -44,12 +44,12 @@ cv::Mat thresholdImage(const cv::Mat& image, int thresholdValue) {
 }
 
 cv::Mat extractSeam(const cv::Mat& image) {
-    cv::Mat morph_result;
-    cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3));
-    cv::morphologyEx(image, morph_result, cv::MORPH_OPEN, kernel);
-    
-    return morph_result;
+    cv::Mat result = image.clone();
+    cv::medianBlur(result, result, 3);
+    //cv::medianBlur(result, result, 3);
+    return result;
 }
+
 
 cv::Mat computeGradientOrientation(const cv::Mat& image) {
     cv::Mat grad_x, grad_y, angle;
@@ -68,7 +68,7 @@ int main() {
         std::cerr << "Erreur : Impossible de charger l'image." << std::endl;
         return -1;
     }
-
+    cv::imshow("Original image", image);
     cv::Mat gradient_magnitude = computeGradientMagnitude(image);
     cv::imwrite("gradient_magnitude.jpg", gradient_magnitude);
     cv::imshow("Gradient magnitude", gradient_magnitude);

@@ -3,11 +3,11 @@ CXX = g++
 CXXFLAGS = -std=c++17
 
 INCLUDES = -I$(CONDA_PREFIX)/include/opencv4
-LIBS = -L$(CONDA_PREFIX)/lib -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_imgproc
+LIBS = -L$(CONDA_PREFIX)/lib -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_imgproc -lopencv_features2d
 
 TARGET = exec
 
-SRCS = gradient.cpp
+SRCS = fast.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(TARGET)
