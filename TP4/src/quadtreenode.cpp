@@ -86,7 +86,7 @@ void merge(QuadTreeNode* node, Mat& segmented) {
 
 int main() {
     // !!! Pensez à charger votre image ici !!! 
-    Mat image = imread("", IMREAD_GRAYSCALE);
+    Mat image = imread("/Volumes/SSD/M1VMI/S2/image_processing/ImageProcessingLab-main/bin/camera.png", IMREAD_GRAYSCALE);
     if (image.empty()) {
         cerr << "Erreur : Impossible de charger l'image." << endl;
         return -1;

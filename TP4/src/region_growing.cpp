@@ -56,7 +56,7 @@ void onMouse(int event, int x, int y, int, void*) {
 
 int main() {
     // !!! Pensez à charger votre image ici !!! 
-    image = imread("", IMREAD_GRAYSCALE);
+    image = imread("/Volumes/SSD/M1VMI/S2/image_processing/ImageProcessingLab-main/bin/corner3.png", IMREAD_GRAYSCALE);
     if (image.empty()) {
         cerr << "Erreur : Impossible de charger l'image." << endl;
         return -1;
