@@ -16,7 +16,7 @@ Ce TP porte sur différentes méthodes de segmentation d'images.
 
 ---
 
-### **TP7 - Gradient Magnitude/Détection de points clés**
+### **TP7 - Edge & Keypoint Detection**
 Ce TP porte sur quelques algorithmes de détection de points d'intérêt dans les images, ainsi que le calcul de la magnitude de gradient.
 
 #### **Fichiers inclus :**
